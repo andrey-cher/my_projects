@@ -1,0 +1,43 @@
+package ru.idRamblerRegistration;
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+public class FirstTest {
+
+    public ChromeDriver driver;
+
+    @Before
+    public void setUp() {
+        System.setProperty("webdriver.chrome.driver", "c:\\Users\\Andre\\downloads\\chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.get("https://mail.rambler.ru/?utm_source=head&utm_campaign=self_promo&utm_medium=topline&utm_content=mail");
+
+
+
+    }
+
+    @Test
+    public void FirstTest(){
+        driver.findElementByCssSelector("[id=login]").sendKeys("Emailtest55@rambler.ru");
+        driver.findElementByCssSelector("[id=password").sendKeys("Parol66666");
+        driver.findElementByCssSelector("Input[type=\"Submit\"]").click();
+        System.out.println("ActualTitle is+"); //как вариант количество входящих писем можно получить из заголовка страницы входящей почты
+
+
+
+
+
+
+    }
+
+
+
+
+}
