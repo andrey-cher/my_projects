@@ -1,0 +1,166 @@
+package ru.idRamblerRegistration;
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class FirstTest {
+
+    public EdgeDriver driver;
+
+    @Before
+    public void setUp() {
+        System.setProperty("webdriver.edge.driver", "c:\\Users\\Andre\\downloads\\MicrosoftWebDriver.exe");
+        driver = new EdgeDriver();
+        driver.get("https://id.rambler.ru/account/registration");
+
+    }
+
+    @Test
+    public void FirstTest(){
+        driver.findElementByCssSelector("[name=login]").sendKeys("1");
+        WebElement InputStatusMessage= driver.findElement(By.xpath("[id=fill_user]"));
+        Assert.assertEquals(InputStatusMessage.getText(),"Логин должен быть от 3 до 32 символов");
+
+    }
+    @Test
+    public void FirstTest1(){
+        driver.findElementByCssSelector("[name=login]").clear();
+        driver.findElementByCssSelector("[name=login]").sendKeys("Abcd4555555555555555556565656555565");
+        WebElement InputStatusMessage= driver.findElement(By.xpath("[@id=fill_user]"));
+        Assert.assertEquals(InputStatusMessage.getText(),"Логин должен быть от 3 до 32 символов");
+
+    }
+    @Test
+    public void FirstTest2(){
+        driver.findElementByCssSelector("[name=login]").clear();
+        driver.findElementByCssSelector("[name=login]").sendKeys("Андрей");
+        WebElement InputStatusMessage= driver.findElement(By.xpath("[@d=fill_user]"));
+        Assert.assertEquals(InputStatusMessage.getText(),"Недопустимый логин");
+
+    }
+    @Test
+    public void FirstTest3(){
+        driver.findElementByCssSelector("[name=login]").clear();
+        driver.findElementByCssSelector("[name=login]").sendKeys("!#@%^___ #$");
+        WebElement InputStatusMessage= driver.findElement(By.xpath("[id=fill_user]"));
+        Assert.assertEquals(InputStatusMessage.getText(),"Недопустимый логин");
+
+    }
+    @Test
+    public void FirstTest4(){
+        driver.findElementByCssSelector("[name=login]").clear();
+        driver.findElementByCssSelector("[name=login]").sendKeys("!#@%^___ #$");
+        WebElement InputStatusMessage= driver.findElement(By.xpath("[@d=fill_user]"));
+        Assert.assertEquals(InputStatusMessage.getText(),"Недопустимый логин");
+
+    }
+    @Test
+    public void FirstTest5(){
+        driver.findElementByCssSelector("[name=newPassword]").clear();
+        driver.findElementByCssSelector("[name=newPassword]").sendKeys("A");
+        WebElement InputStatusMessage= driver.findElement(By.xpath("[id=fill_password]"));
+        Assert.assertEquals(InputStatusMessage.getText(),"Пароль должен содержать от 8 до 32 символов, включать хотя бы одну заглавную латинскую букву, одну строчную и одну цифру");
+
+    }
+    @Test
+    public void FirstTest6(){
+        driver.findElementByCssSelector("[name=newPassword]").clear();
+        driver.findElementByCssSelector("[name=newPassword]").sendKeys("Asdfgh5");
+        WebElement InputStatusMessage= driver.findElement(By.xpath("[id=fill_password]"));
+        Assert.assertEquals(InputStatusMessage.getText(),"Пароль должен содержать от 8 до 32 символов, включать хотя бы одну заглавную латинскую букву, одну строчную и одну цифру");
+
+    }
+    @Test
+    public void FirstTest7(){
+        driver.findElementByCssSelector("[name=newPassword]").clear();
+        driver.findElementByCssSelector("[name=newPassword]").sendKeys("Asdfghj555656555555555555555555555555555555555555555555555555555555555");
+        WebElement InputStatusMessage= driver.findElement(By.xpath("[id=fill_password]"));
+        Assert.assertEquals(InputStatusMessage.getText(),"Пароль должен содержать от 8 до 32 символов, включать хотя бы одну заглавную латинскую букву, одну строчную и одну цифру");
+
+    }
+    @Test
+    public void FirstTest8(){
+        driver.findElementByCssSelector("[name=newPassword]").clear();
+        driver.findElementByCssSelector("[name=newPassword]").sendKeys("asdfghf");
+        WebElement InputStatusMessage= driver.findElement(By.xpath("[id=fill_password]"));
+        Assert.assertEquals(InputStatusMessage.getText(),"Пароль должен содержать от 8 до 32 символов, включать хотя бы одну заглавную латинскую букву, одну строчную и одну цифру");
+
+
+    }
+    @Test
+    public void FirstTest9(){
+        driver.findElementByCssSelector("[name=newPassword]").clear();
+        driver.findElementByCssSelector("[name=newPassword]").sendKeys("ASDFGH");
+        WebElement InputStatusMessage= driver.findElement(By.xpath("[id=fill_password]"));
+        Assert.assertEquals(InputStatusMessage.getText(),"Пароль должен содержать от 8 до 32 символов, включать хотя бы одну заглавную латинскую букву, одну строчную и одну цифру");
+
+
+    }
+    @Test
+    public void FirstTest10(){
+        driver.findElementByCssSelector("[name=newPassword]").clear();
+        driver.findElementByCssSelector("[name=newPassword]").sendKeys("ASDfgHjyf");
+        WebElement InputStatusMessage= driver.findElement(By.xpath("[id=fill_password]"));
+        Assert.assertEquals(InputStatusMessage.getText(),"Пароль должен содержать от 8 до 32 символов, включать хотя бы одну заглавную латинскую букву, одну строчную и одну цифру");
+
+
+    }
+    @Test
+    public void FirstTest11(){
+        driver.findElementByCssSelector("[name=newPassword]").clear();
+        driver.findElementByCssSelector("[name=newPassword]").sendKeys("452568788");
+        WebElement InputStatusMessage= driver.findElement(By.xpath("[id=fill_password]"));
+        Assert.assertEquals(InputStatusMessage.getText(),"Пароль должен содержать от 8 до 32 символов, включать хотя бы одну заглавную латинскую букву, одну строчную и одну цифру");
+
+
+    }
+    @Test
+    public void FirstTest12(){
+        driver.findElementByCssSelector("[name=newPassword]").clear();
+        driver.findElementByCssSelector("[name=newPassword]").sendKeys("Parol2019@#/\\~)");
+        WebElement InputStatusMessage= driver.findElement(By.xpath("[id=fill_password]"));
+        Assert.assertEquals(InputStatusMessage.getText(),"Пароль должен содержать от 8 до 32 символов, включать хотя бы одну заглавную латинскую букву, одну строчную и одну цифру");
+
+
+    }
+    @Test
+    public void FirstTest13(){
+        driver.findElementByCssSelector("[name=newPassword]").clear();
+        driver.findElementByCssSelector("[name=newPassword]").sendKeys("@#/\\+-%*/");
+        WebElement InputStatusMessage= driver.findElement(By.xpath("[id=fill_password]"));
+        Assert.assertEquals(InputStatusMessage.getText(),"Пароль должен содержать от 8 до 32 символов, включать хотя бы одну заглавную латинскую букву, одну строчную и одну цифру");
+
+
+    }
+    @Test
+    public void FirstTest14(){
+        driver.findElementByCssSelector("[name=newPassword]").clear();
+        driver.findElementByCssSelector("[name=newPassword]").sendKeys("@+-**()%@+++-$$$");
+        WebElement InputStatusMessage= driver.findElement(By.xpath("[id=fill_password]"));
+        Assert.assertEquals(InputStatusMessage.getText(),"Пароль должен содержать от 8 до 32 символов, включать хотя бы одну заглавную латинскую букву, одну строчную и одну цифру");
+
+
+    }
+    @Test
+    public void FirstTest15(){
+        driver.findElementByCssSelector("[name=newPassword]").clear();
+        driver.findElementByCssSelector("[name=newPassword]").sendKeys("Parol  2019");
+        WebElement InputStatusMessage= driver.findElement(By.xpath("[id=fill_password]"));
+        Assert.assertEquals(InputStatusMessage.getText(),"Пароль должен содержать от 8 до 32 символов, включать хотя бы одну заглавную латинскую букву, одну строчную и одну цифру");
+
+
+    }
+
+    @After
+    public void close() {
+        driver.quit();
+    }
+
+
+
+}
